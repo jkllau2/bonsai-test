@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "migrate": "npx sequelize-cli db:migrate",
+    "unmigrate": "npx sequelize-cli db:migrate:undo",
+    "unmigrate-all": "npx sequelize-cli db:migrate:undo:all",
+    "seed-all": "npx sequelize-cli db:seed:all",
+    "unseed": "npx sequelize-cli db:seed:undo",
+    "unseed-all": "npx sequelize-cli db:seed:undo:all"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  },
+  "dependencies": {
+    "faker": "^5.1.0",
+    "mariadb": "^2.5.2",
+    "sequelize": "^6.3.5",
+    "uuid": "^8.3.2"
+  }
+}

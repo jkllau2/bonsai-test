@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "bonsai_user",
+    "password": "bonsai@54321!",
+    "database": "SHOP_DB",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "test": {
+    "username": "bonsai_user",
+    "password": "bonsai@54321!",
+    "database": "SHOP_DB",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "bonsai_user",
+    "password": "bonsai@54321!",
+    "database": "SHOP_DB",
+    "host": "127.0.0.1",
+    "dialect": "mariadb"
+  }
+}

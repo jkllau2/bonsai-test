@@ -1,0 +1,16 @@
+version: "2.1"
+services:
+  mariadb:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=ROOT_ACCESS_PASSWORD
+      - TZ=America/New_York
+      - MYSQL_DATABASE=SHOP_DB #optional
+      - MYSQL_USER=bonsai_user #optional
+      - MYSQL_PASSWORD=bonsai@54321! #optional
+    ports:
+      - 3306:3306
+    restart: unless-stopped
