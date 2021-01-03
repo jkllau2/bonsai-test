@@ -1,9 +1,10 @@
 import DataType from 'sequelize'
-import sequelize from '../config/sequelize'
-import Brand from '../models/brand'
-const uuid = require('uuid/v4')
+import sequelize from '../config/sequelize.js'
+import Brand from '../models/brand.js'
 
-const Product = sequelize.define('product', {
+import { v4 as uuidv4 } from 'uuid'
+
+const Product = sequelize.define('products', {
   belongsToBrand: {
     type: DataType.INTEGER(11),
     references: {
@@ -41,6 +42,6 @@ const Product = sequelize.define('product', {
   freezeTableName: true,
 })
 
-Product.beforeCreate(product => product.id = uuid())
+Product.beforeCreate(product => product.id = uuidv4())
 
 export default Product

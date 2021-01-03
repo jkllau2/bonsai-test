@@ -3,10 +3,12 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('merchant_brands', {
       merchantId: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        primaryKey: true,
       },
       brand: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        primaryKey: true,
       },
     });
   },

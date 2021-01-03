@@ -1,37 +1,48 @@
-'use strict';
+import Brand from './brand.js'
+import BrandProducts from './brand_products.js'
+import Merchant from './merchant.js'
+import MerchantBrands from './merchant_brands.js'
+import MerchantProducts from './merchant_products.js'
+import MerchantPublishedUser from './merchant_published_user.js'
+import Product from './product.js'
+import User from './user.js'
+import UserMerchantLog from './user_merchant_log.js'
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+MerchantProducts.belongsTo(Merchant, {
+  foreignKey: 'merchantId',
+  as: 'merchantData',
+})
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+MerchantProducts.belongsTo(Product, {
+  foreignKey: 'productId',
+  as: 'productData',
+})
+
+MerchantBrands.belongsTo(Merchant, {
+  foreignKey: 'merchantId'
+})
+
+MerchantBrands.belongsTo(Brand, {
+  foreignKey: 'brand',
+  as: 'brandName'
+})
+
+MerchantPublishedUser.belongsTo(Merchant, {
+  foreignKey: 'merchantId'
+})
+
+MerchantPublishedUser.belongsTo(User, {
+  foreignKey: 'userId'
+})
+
+export {
+  Brand,
+  BrandProducts,
+  Merchant,
+  MerchantBrands,
+  MerchantProducts,
+  MerchantPublishedUser,
+  Product,
+  User,
+  UserMerchantLog,
 }
-
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
-
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
-
-module.exports = db;

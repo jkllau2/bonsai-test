@@ -1,8 +1,23 @@
 import React from 'react'
-import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
+import { hydrate } from 'react-dom'
+import { Provider } from 'react-redux'
 
-import App from './App';
+import App from './App.js'
+import configureStore from './redux/store/configureStore.js'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+const store = configureStore(window.__PRELOADED_STATE__)
 
-ReactDOM.render(<App />, document.getElementById('root'));
+hydrate(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+
+  document.getElementById('root')
+)
+
+if (module.hot) {
+  module.hot.accept()
+}

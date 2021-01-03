@@ -4,9 +4,11 @@ module.exports = {
     await queryInterface.createTable('merchant_products', {
       merchantId: {
         type: Sequelize.UUID,
+        primaryKey: true,
       },
       productId: {
         type: Sequelize.UUID,
+        primaryKey: true,
       },
     });
   },

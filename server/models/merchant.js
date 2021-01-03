@@ -1,10 +1,11 @@
 import DataType from 'sequelize'
-import sequelize from '../config/sequelize'
-import Brand from '../models/brand'
-import Product from '../models/product'
-const uuid = require('uuid/v4')
+import sequelize from '../config/sequelize.js'
+import Brand from '../models/brand.js'
+import Product from '../models/product.js'
 
-const Merchant = sequelize.define('merchant', {
+import { v4 as uuidv4 } from 'uuid'
+
+const Merchant = sequelize.define('merchants', {
   index: {
     type: DataType.INTEGER(11),
     autoIncrement: true,
@@ -24,20 +25,6 @@ const Merchant = sequelize.define('merchant', {
   publishedState: {
     type: DataType.BOOLEAN
   },
-  brands: {
-    type: DataType.INTEGER(11),
-    references: {
-      model: Brand,
-      key: 'id'
-    }
-  },
-  products: {
-    type: DataType.INTEGER(11),
-    references: {
-      model: Product,
-      key: 'id'
-    }
-  },
   merchant: {
     type: DataType.STRING(255),
   },
@@ -56,15 +43,12 @@ const Merchant = sequelize.define('merchant', {
   publishedDate: {
     type: DataType.DATE
   },
-  publishedBy: {
-    type: DataType.INTEGER(11)
-  },
   companyDescription: {
     type: DataType.TEXT,
   },
 }, {
   freezeTableName: true,
 })
-Merchant.beforeCreate(merchant => merchant.guid = uuid())
+Merchant.beforeCreate(merchant => merchant.guid = uuidv4())
 
 export default Merchant

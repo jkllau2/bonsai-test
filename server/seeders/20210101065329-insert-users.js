@@ -1,5 +1,4 @@
 'use strict';
-const uuid = require('uuid/v4')
 const faker = require('faker')
 
 // list of userIds extracted from mockMerchantData.js

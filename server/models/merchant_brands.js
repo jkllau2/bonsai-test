@@ -1,9 +1,9 @@
 import DataType from 'sequelize'
-import sequelize from '../config/sequelize'
-import Merchant from '../models/merchant'
-import Brand from '../models/brand'
+import sequelize from '../config/sequelize.js'
+import Merchant from '../models/merchant.js'
+import Brand from '../models/brand.js'
 
-const MerchantBrand = sequelize.define('merchant_brand', {
+const MerchantBrand = sequelize.define('merchant_brands', {
   merchantId: {
     unique: true,
     type: DataType.UUID,

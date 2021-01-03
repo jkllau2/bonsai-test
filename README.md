@@ -1,8 +1,26 @@
+# Instruction for setting up
+1. Run the docker-compose file to setup database (mariadb)
+2. Go to root of project and run `yarn install`
+3. After that navigate to `server` and run the command `yarn run migrate-all`
+4. After that run `yarn run seed-all` to seed the database
+5. Go back to root of the project and run `yarn dev` or run `yarn client` and `yarn start` for `client` and `server` respectively
+6. Client should be port `8080` and server should be port `3000`
+
+# List of features done
+1. Extracted and sanitized data from `mockMerchantData.js` and created data models based on that. The data in the DB should be idential to data in `mockMerchantData.js`
+2. Migrations are created for tables and data are seeded into database
+3. Join tables are created for Merchant/Product, Merchant/Brand, Merchant/Users
+4. Docker is setup for mariaDB as seen in the `docker-compose` file
+5. Merchant and product data are displayed in a meaningful way in FE
+6. User profile is displayed in the FE
+7. `Add to cart` can be used and is saved in the table `user_merchant_log`
+8. Various webpack configuration is modified for backend
+
 # Bonsai React Interview Test
 
 Welcome to the creative interview test at Shop Bonsai.
 
-This interview test simulates an environment that is similar to working at Shop Bonsai (very similar tech stack we run today). 
+This interview test simulates an environment that is similar to working at Shop Bonsai (very similar tech stack we run today).
 
 Scenario:
 You joined as the new member of a small start-up team. Together we are building a new app to sell cool 3rd party products! So far, the sales team worked tirelessly and managed to acquire over 50 merchants who each have different brands and products offerings. The developers have also been working hard and have created a home page and shop page to welcome the users and display the products of the newly acquired merchants.

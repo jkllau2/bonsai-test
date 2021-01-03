@@ -1,7 +1,7 @@
 import DataType from 'sequelize'
-import sequelize from '../config/sequelize'
-import Brand from '../models/brand'
-import Product from '../models/product'
+import sequelize from '../config/sequelize.js'
+import Brand from './brand.js'
+import Product from './product.js'
 
 const BrandProducts = sequelize.define('brand_products', {
   brandId: {

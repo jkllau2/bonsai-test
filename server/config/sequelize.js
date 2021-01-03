@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'test') {
   }
 } else {
   options = {
-    host: process.env.MARIA_DB_HOST,
+    host: 'localhost' || process.env.MARIA_DB_HOST,
     dialect: 'mariadb',
     pool: {
       max: 40,
@@ -30,10 +30,11 @@ if (process.env.NODE_ENV === 'test') {
   }
 }
 
+// hardcoded for this interview only
 const sequelize = new Sequelize(
-  process.env.MARIA_DB_NAME,
-  process.env.MARIA_DB_USERNAME,
-  process.env.MARIA_DB_PASSWORD,
+  'SHOP_DB' || process.env.MARIA_DB_NAME,
+  'bonsai_user' || process.env.MARIA_DB_USERNAME,
+  'bonsai@54321!' || process.env.MARIA_DB_PASSWORD,
   options
 )
 

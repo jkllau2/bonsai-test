@@ -1,8 +1,9 @@
 import DataType from 'sequelize'
-import sequelize from '../config/sequelize'
-const uuid = require('uuid/v4')
+import sequelize from '../config/sequelize.js'
 
-const User = sequelize.define('user', {
+import { v4 as uuidv4 } from 'uuid'
+
+const User = sequelize.define('users', {
   id: {
     type: DataType.UUID,
     primaryKey: true,
@@ -42,6 +43,6 @@ const User = sequelize.define('user', {
   },
 })
 
-User.beforeCreate(user => user.id = uuid())
+User.beforeCreate(user => user.id = uuidv4())
 
 export default User

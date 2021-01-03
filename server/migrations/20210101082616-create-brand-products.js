@@ -3,10 +3,12 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('brand_products', {
       brandId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        primaryKey: true,
       },
       productId: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        primaryKey: true,
       },
     });
   },

@@ -1,11 +1,11 @@
 import DataType from 'sequelize'
-import sequelize from '../config/sequelize'
-import Merchant from '../models/merchant'
-import Product from '../models/product'
+import sequelize from '../config/sequelize.js'
+import Merchant from '../models/merchant.js'
+import Product from '../models/product.js'
 
 const MerchantProducts = sequelize.define('merchant_products', {
   merchantId: {
-    unique: true,
+    primaryKey: true,
     type: DataType.UUID,
     reference: {
       model: Merchant,
@@ -13,7 +13,7 @@ const MerchantProducts = sequelize.define('merchant_products', {
     }
   },
   productId: {
-    unique: true,
+    primaryKey: true,
     type: DataType.UUID,
     reference: {
       model: Product,

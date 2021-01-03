@@ -1,7 +1,7 @@
 import DataType from 'sequelize'
-import sequelize from '../config/sequelize'
-import Merchant from '../models/merchant'
-import User from '../models/user'
+import sequelize from '../config/sequelize.js'
+import Merchant from '../models/merchant.js'
+import User from '../models/user.js'
 
 const MerchantPublishedUser = sequelize.define('merchant_published_users', {
   merchantId: {

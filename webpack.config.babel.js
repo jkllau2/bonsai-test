@@ -5,7 +5,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-  entry: './client/src/index.js',
+  entry: ['@babel/polyfill', './client/src/index.js'],
   module: {
     rules: [
       {
@@ -17,6 +17,7 @@ module.exports = {
             presets: ['@babel/preset-react'],
             plugins: [
               ["@babel/plugin-proposal-decorators", { "legacy": true }],
+              ["@babel/plugin-proposal-class-properties"]
             ]
           }
         }
@@ -27,5 +28,16 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin],
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000'
+      }
+    },
+    historyApiFallback: true,
+  },
+  output: {
+    publicPath: '/'
+  }
 };
