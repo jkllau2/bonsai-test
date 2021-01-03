@@ -16,6 +16,9 @@
 7. `Add to cart` can be used and is saved in the table `user_merchant_log`
 8. Various webpack configuration is modified for backend
 
+# Things that can be improved
+1. The merchant data can be further optimized and grouped to allow products to fall under each merchant
+
 # Bonsai React Interview Test
 
 Welcome to the creative interview test at Shop Bonsai.

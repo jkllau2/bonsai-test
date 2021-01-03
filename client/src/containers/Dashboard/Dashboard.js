@@ -9,13 +9,6 @@ import MerchantCard from '../../components/MerchantCard/MerchantCard.js'
 import CartTable from '../../components/Cart/CartTable.js'
 
 class Dashboard extends Component {
-  constructor() {
-    super()
-    this.state = {
-      cartModal: false
-    }
-  }
-
   async componentDidMount() {
     const { getAllMerchants } = this.props
     await getAllMerchants()
@@ -26,8 +19,7 @@ class Dashboard extends Component {
   }
 
   handleSaveAllCart = async () => {
-    const { cart } = this.props
-    const { saveAllCart } = this.props
+    const { cart, saveAllCart } = this.props
     await saveAllCart({ payload: cart })
   }
 
