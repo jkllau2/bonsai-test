@@ -1,7 +1,7 @@
 # Instruction for setting up
-1. Run the docker-compose file to setup database (mariadb)
+1. Run the docker-compose file to setup database (mariadb) `docker-compose up`
 2. Go to root of project and run `yarn install`
-3. After that navigate to `server` and run the command `yarn run migrate-all`
+3. After that navigate to `server` and run the command `yarn run migrate`
 4. After that run `yarn run seed-all` to seed the database
 5. Go back to root of the project and run `yarn dev` or run `yarn client` and `yarn start` for `client` and `server` respectively
 6. Client should be port `8080` and server should be port `3000`
